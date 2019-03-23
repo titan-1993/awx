@@ -1,4 +1,12 @@
-- hosts: all
-  gather_facts: false
+- name: checking webserver status
+  hosts: web*
   tasks:
-    - ping:
+  - name: checking apache status
+    shell: systemctl status "{{ item }}"
+    with_items:
+    - viewweb
+    - slsweb
+    register: result
+  - name: show report
+    debug:
+      var: result
