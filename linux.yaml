@@ -6,3 +6,16 @@
     with_items:
     - viewweb
     - slweb
+    
+- name: chekcing haproxy status
+  hosts: haproxy*
+  tasks:
+  - name: checking haproxy status
+    service: name=haproxy state=started
+     
+- name: checking mysqld status
+  hosts: *db*
+  tasks:
+  - name: checking mysqld status
+    service: name=mysqld state=started
+    
