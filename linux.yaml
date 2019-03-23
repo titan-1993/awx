@@ -2,11 +2,7 @@
   hosts: web*
   tasks:
   - name: checking apache status
-    shell: systemctl status "{{ item }}"
+    service: name="{{ item }}" state=started
     with_items:
     - viewweb
     - slweb
-    register: result
-  - name: show report
-    debug:
-      var: result
