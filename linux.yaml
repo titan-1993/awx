@@ -12,10 +12,4 @@
   tasks:
   - name: checking haproxy status
     service: name=haproxy state=started
-     
-- name: checking mysqld status
-  hosts: *db*
-  tasks:
-  - name: checking mysqld status
-    service: name=mysqld state=started
     
