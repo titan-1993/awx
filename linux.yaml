@@ -20,7 +20,8 @@
   hosts: viewdb*,slsdb*
   tasks:
   - name: checking database status
-    shell: pcs status
+    pacemaker_cluster:
+      state: online
 
 - name: checking samba status
   hosts: samba
