@@ -1,8 +1,13 @@
 ---
 # This playbook uses the win_ping module to test connectivity to Windows hosts
-- name: Ping 
-  hosts: all 
-
+- name: viewapp status
+  hosts: viewapp*
   tasks:
-  - name: ping
-    win_ping:
+  - name: viewapp status
+    command: get-clusterresource -name smartview_svc
+- name: slsapp status
+  hosts: slsapp*
+  tasks:
+  - name: slsapp status
+    command: get-clusterresource -name smartsl_svc 
+ 
