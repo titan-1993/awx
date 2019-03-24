@@ -23,7 +23,7 @@
     shell: pcs status
 
 - name: checking samba status
-  hosts: smaba
+  hosts: samba
   tasks:
   - name: checking database status
     service: name=smb state=started
