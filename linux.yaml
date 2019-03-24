@@ -12,4 +12,12 @@
   tasks:
   - name: checking haproxy status
     service: name=haproxy state=started
+  tasks:
+  - name: checking keepalived status
+    service: name=keepalived state=started
     
+- name: checking database status
+  hosts: *db*
+  tasks:
+  - name: checking database status
+    shell: pcs status
