@@ -7,20 +7,19 @@
     - viewweb
     - slweb
     register: result
-  - debug: var: result.stdout_lines
+  - debug: 
+      var: result.stdout_lines
     
 - name: chekcing haproxy status
   hosts: haproxy*
   tasks:
   - name: checking haproxy status
     service: name=haproxy state=started
-    register: result
-  - debug: var: result.stdout_lines
+ 
   tasks:
   - name: checking keepalived status
     service: name=keepalived state=started
-    register: result
-  - debug: var: result.stdout_lines
+
     
 - name: checking database status
   hosts: viewdb*,slsdb*
@@ -28,13 +27,11 @@
   - name: checking database status
     pacemaker_cluster:
       state: online
-    register: result
-  - debug: var: result.stdout_lines
+ 
 
 - name: checking samba status
   hosts: samba
   tasks:
   - name: checking database status
     service: name=smb state=started
-    register: result
-  - debug: var: result.stdout_lines
+
