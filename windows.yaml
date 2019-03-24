@@ -4,10 +4,10 @@
   hosts: viewapp*
   tasks:
   - name: viewapp status
-    command: get-clusterresource -name smartview_svc
+    win_shell: get-clusterresource -name smartview_svc
 - name: slsapp status
   hosts: slsapp*
   tasks:
   - name: slsapp status
-    command: get-clusterresource -name smartsl_svc 
+    win_shell: get-clusterresource -name smartsl_svc 
  
