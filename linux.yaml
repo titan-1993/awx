@@ -17,7 +17,7 @@
     service: name=keepalived state=started
     
 - name: checking database status
-  hosts: *db*
+  hosts: viewdb*,slsdb*
   tasks:
   - name: checking database status
     shell: pcs status
