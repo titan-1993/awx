@@ -21,3 +21,9 @@
   tasks:
   - name: checking database status
     shell: pcs status
+
+- name: checking samba status
+  hosts: smaba
+  tasks:
+  - name: checking database status
+    service: name=smb state=started
