@@ -24,7 +24,7 @@
   - name: checking database status
     pacemaker_cluster:
       state: online
-    register: result
+      register: result
   - debug: 
       var: result.stdout_lines
  
