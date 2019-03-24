@@ -6,9 +6,6 @@
     with_items:
     - viewweb
     - slweb
-    register: result
-  - debug: 
-      var: result.stdout_lines
     
 - name: chekcing haproxy status
   hosts: haproxy*
@@ -27,6 +24,9 @@
   - name: checking database status
     pacemaker_cluster:
       state: online
+    register: result
+  - debug: 
+      var: result.stdout_lines
  
 
 - name: checking samba status
